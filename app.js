@@ -47,7 +47,9 @@ app.get("/", (req, res) => {
       } else {
         res.render("pages/home", { data: data });
       }
-    });
+    })
+      .collation({ locale: "hr", strength: 2 })
+      .sort({ datum: -1 });
   } catch (error) {
     console.log(error);
   }
@@ -70,7 +72,9 @@ app.get("/search", (req, res) => {
           res.render("pages/home", { data: data });
         }
       }
-    );
+    )
+      .collation({ locale: "hr", strength: 2 })
+      .sort({ datum: -1 });
   } catch (error) {
     console.log(error);
   }
