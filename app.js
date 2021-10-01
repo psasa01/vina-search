@@ -32,6 +32,8 @@ app.set("view engine", "ejs");
 ///fetch the data from request
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(express.static("public"));
+
 function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }
