@@ -1,0 +1,101 @@
+<%-include('../partial/header')-%>
+<div class=" container">
+    
+  
+        <form class="form-inline my-2 my-lg-0" action="/search" method="get">
+          <input class="form-control background" type="text" name="dsearch" placeholder="Search">
+          <button class="btn btn-primary mr-sm-12 my-2 my-sm-0 float-end" type="submit" style="width: 100%; backround-color: blue">Search</button>
+        </form>
+  
+    <!-- <center>
+    <div class="card" style="width: fit-content;">
+        <div class="card-body">
+         <form action="/" method="POST">
+                <div class="row">
+                  <div class="form-group col-md-12">
+                    <input type="text" class="form-control" name="author" placeholder="Auhtor Name" required>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12"">
+                        <input type="text" class="form-control" name="book" placeholder="Book Name" required>
+                      </div>
+                </div>
+                <button type="submit">Submit</button>
+              </form> 
+        </div>
+      </div>
+    </center> -->
+    <br>
+    <%if(data.length>0){%>
+        <center>
+
+        <div style="width:auto; border-style: solid;border-color: black;">
+        <table class="table-responsive table-hover table-striped" style="font-size: .8em">
+            <!-- <thead class="bg-warning">
+                <tr>
+                    <th>
+                        Naziv
+                    </th>
+                    <th>
+                        Slika
+                    </th>
+                    <th>
+                        Zemlja
+                    </th>
+                </tr>
+            </thead> -->
+            <tbody style="width: 95%; margin: auto;">
+                <%for(var i=0;i< data.length;i++){%>
+                                <!-- Modal -->
+<div class="modal fade" id="modal-<%=data[i]._id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><%=data[i].naziv%></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <img src='https://vina.sava.ba/images/vina-thumbs/<%=data[i].slika%>' style="margin-bottom: 1em;">
+            <p style="margin: 0;">Zemlja Porijekla: <%=data[i].zemlja%></p>
+            <p style="margin: 0;">Vrsta: <%=data[i].vrsta%></p>
+            <p style="margin: 0;">Godina berbe: <%=data[i].godina%></p>
+            <p style="margin: 0;">Veličina boce: <%=data[i].velicina%></p>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+                <tr style="height: 5em" data-toggle="modal" data-target="#modal-<%=data[i]._id%>">
+
+                        <!--  -->
+                        <td style="text-align: left; padding-left: 1em"> 
+                            <img src='https://vina.sava.ba/images/vina-thumbs/<%=data[i].slika%>' style="height: 4.5em">
+                        </td>
+                    <td style="text-align: left; padding-left: 1em">
+                     <%=data[i].naziv%>
+                    </td>
+
+                    <!-- <td>
+                        <%=data[i].godina%>
+                    </td> -->
+                    <td style="text-align: right; padding-right: 1em">
+                      <%=data[i].zemlja%>
+                    </td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+    </div>
+    </center>
+    <%}%>
+         
+    </div>
+
+<%-include('../partial/footer')-%>
