@@ -1,3 +1,23 @@
-.table {
-    color: blue !important;
+body {
+    background-color: #dfefff;
 }
+
+body::after {
+   
+        content: "";
+        background-image: url('./../assets/seamless.jpg');
+        background-repeat: repeat;
+
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: fixed;
+        z-index: -1;   
+        opacity: .05;
+      }
+
+      table {
+          background-color:#82bdf76c;
+      }
+   
