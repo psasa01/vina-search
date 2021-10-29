@@ -79,7 +79,11 @@
 
                         <!--  -->
                         <td style="text-align: left; padding-left: 1em"> 
+                          <% if(data[i].slika) { %>
                             <img src='https://vina.sava.ba/images/vina-thumbs/<%=data[i].slika%>' style="height: 4.5em">
+                            <% } else { %>
+                            <img src='https://res.cloudinary.com/sale01/image/upload/v1635493657/vina%20assets/slika.jpg' style="height: 4.5em">
+                            <% } %>
                         </td>
                     <td style="text-align: left; padding-left: 1em">
                      <%=data[i].naziv%>
